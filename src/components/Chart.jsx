@@ -114,7 +114,7 @@ const ChartContainer = () => {
         <div>
             {showChart && (
                 <div className="chart-container">
-                    <canvas id="myChart" style={{ height: '200px' }}></canvas>
+                    <canvas id="myChart" style={{ maxHeight: '330px'}}></canvas>
                 </div>
             )}
         </div>

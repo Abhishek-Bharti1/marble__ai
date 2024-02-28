@@ -4,31 +4,31 @@ import { IoMdArrowDropup } from "react-icons/io";
 import "../styles/Header.css";
 import DialogueBox from './DialogueBox';
 
-const Header = ({ props }) => {
+const Header = ({ isIcon,rupees,label, id}) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const handleMouseOver = () => {
+  const handleMouseOver = (event) => {
     setIsDialogOpen(true);
   };
 
-  const handleMouseOut = () => {
+  const handleMouseOut = (event) => {
     setIsDialogOpen(false);
   };
 
   return (
-    <div className='Header'>
+    <div className='Header' style={{background: id===1?'#f1f1f1': '#fff'}} >
       <div className='headerCard'>
         <div className='storeHeading'>
           <span
             className='storeHeadSpan'
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
+            onMouseOver={(e)=>handleMouseOver(e)}
+            onMouseOut={(e)=>handleMouseOut(e)}
           >
-            Online Store Sessions
+           {label}
           </span>
-          <span className='pen'>{props ? null : <FaPen />}</span>
+          <span className='pen'>{isIcon ? null : <FaPen />}</span>
         </div>
-        <span className='money'>255,801 <span className='percent'><IoMdArrowDropup />9%</span></span>
+        <span className='money'>{rupees}<span className='percent'><IoMdArrowDropup />9%</span></span>
       </div>
       {isDialogOpen && (
         <div className="dialogBox">

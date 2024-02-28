@@ -10,16 +10,15 @@
   width: 100%;
 }
 .card {
-    /* background-color:#f1f1f1; */
+    background-color:#f1f1f1;
   width: 70%;
   border-radius: 1rem;
   padding: 0 1rem 0 1rem;
-  background-color: white;
   height: 70%;
 }
 .navs-links{
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     gap: 1rem;
 }
 .p-accordion .p-accordion-header .p-accordion-header-link{

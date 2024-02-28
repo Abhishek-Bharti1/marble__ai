@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Accordion, AccordionTab } from "primereact/accordion";
+import "./App.css";
+import Header from "./components/Header";
+import ChartContainer from "./components/Chart";
 
 function App() {
+  const [isTabActive, setIsTabActive] = useState(false);
+
+  const handleTabChange = () => {
+    setIsTabActive(!isTabActive);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="card">
+        <Accordion>
+          <AccordionTab
+            header={
+              <div className="navs-links">
+                <Header />
+                <Header />
+                <Header />
+                <Header props={true} />
+              </div>
+            }
+onClick={handleTabChange}
+          >
+            <div className="navbar">
+            {isTabActive && <ChartContainer/>}
+            </div>
+          </AccordionTab>
+        </Accordion>
+      </div>
     </div>
   );
 }

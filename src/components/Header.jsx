@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaPen } from "react-icons/fa";
-import { IoMdArrowDropup } from "react-icons/io";
+import { IoMdArrowDropup,IoMdArrowDropdown } from "react-icons/io";
 import "../styles/Header.css";
 import DialogueBox from './DialogueBox';
 import { ListBox } from 'primereact/listbox';
@@ -10,7 +10,7 @@ const Header = ({ isIcon, rupees, label, id }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
-  const countries = [
+  const data = [
     { name: 'Average Order Value', code: 'AU' },
     { name: 'Conversion rate', code: 'BR' },
     { name: 'Gross Sales', code: 'CN' },
@@ -33,12 +33,15 @@ const Header = ({ isIcon, rupees, label, id }) => {
     setDropdown(!dropdown);
     e.stopPropagation();
   };
-
+  const handleHeader = (e)=>{
+    e.stopPropagation();
+  }
   const handleClickOutside = (event) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
       setDropdown(false);
     }
   };
+
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -48,7 +51,7 @@ const Header = ({ isIcon, rupees, label, id }) => {
   }, []);
 
   return (
-    <div className='Header' style={{ background: id === 1 ? '#f1f1f1' : '#fff' }}>
+    <div className='Header' style={{ background: id === 1 ? '#f1f1f1' : '#fff' }} onClick={(e)=>handleHeader(e)}>
       <div className='headerCard'>
         <div className='storeHeading'>
           <span
@@ -61,12 +64,12 @@ const Header = ({ isIcon, rupees, label, id }) => {
           <div className='pen' onClick={handleDropdown} ref={dropdownRef}><span >{isIcon ? null : <FaPen />}</span></div>
           {dropdown && (
             <div className='dropdown'>
-              <ListBox value={selectedCountry} onChange={(e) => setSelectedCountry(e.value)} options={countries} optionLabel="name"
+              <ListBox value={selectedCountry} onChange={(e) => setSelectedCountry(e.value)} options={data} optionLabel="name"
                 itemTemplate={countryTemplate} className="w-full md:w-14rem" listStyle={{ maxHeight: '250px' }} />
             </div>
           )}
         </div>
-        <span className='money'>{rupees}<span className='percent'><IoMdArrowDropup />9%</span></span>
+        <span className='money'>{rupees}<span className='percent'>{parseFloat(rupees)>0 ? <IoMdArrowDropup/> : <IoMdArrowDropdown/>}9%</span></span>
       </div>
       {isDialogOpen && (
         <div className="dialogBox">

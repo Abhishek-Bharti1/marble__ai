@@ -6,19 +6,13 @@ import DialogueBox from './DialogueBox';
 import { ListBox } from 'primereact/listbox';
 import countryTemplate from './Template';
 import Skeleton from 'react-loading-skeleton';
+import { data } from '../constants/constants';
 
 const Header = ({ isIcon, rupees, label, id, isLoading }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
-  const data = [
-    { name: 'Average Order Value', code: 'AU' },
-    { name: 'Conversion rate', code: 'BR' },
-    { name: 'Gross Sales', code: 'CN' },
-    { name: 'Net Revenue Value', code: 'EG' },
-    { name: 'Store search conversion', code: 'FR' },
-    { name: 'Return rate', code: 'DE' },
-  ];
+
 
   const dropdownRef = useRef(null);
 

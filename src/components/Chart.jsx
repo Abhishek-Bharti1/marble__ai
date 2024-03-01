@@ -20,7 +20,7 @@ const ChartContainer = () => {
         new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: ['Oct 2022', 'Dec 2022', 'Feb 2023', 'Apr 2023', 'Jun 2023', 'Oct 2023', 'Dec 2023'],
                 datasets: [{
                     label: "Line",
                     data: [65, 59, 80, 81, 56, 55, 40],
@@ -86,7 +86,7 @@ const ChartContainer = () => {
         });
         bodyLines.forEach(function(body, i) {
             var colors = tooltipModel.labelColors[i];
-            var style = 'background:' + colors.backgroundColor;
+            var style = 'background:' + '#fff';
             style += '; border-color:' + colors.borderColor;
             style += '; border-width: 2px';
             var span = '<span class="chartjs-tooltip-key" style="' + style + '"></span>';

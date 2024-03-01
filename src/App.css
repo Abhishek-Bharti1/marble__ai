@@ -35,3 +35,17 @@
     flex-direction: row-reverse !important;
     align-items: center !important;
 }
+.footer{
+    display: flex;
+flex-direction: row-reverse;
+    gap:2rem;
+}
+.footerChild{
+    background-color: #f1f1f1;
+    padding:0.2rem 1.5rem 0.2rem 1.5rem;
+border-radius: 5px;
+}
+.p-listbox-list-wrapper{
+    overflow: hidden !important;
+}
+

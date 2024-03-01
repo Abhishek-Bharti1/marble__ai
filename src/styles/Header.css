@@ -1,51 +1,62 @@
-.Header{
-    /* background-color: #f1f1f1; */
+.Header {
     border-radius: 1rem;
 }
 
-.Header :hover{
+.Header:hover {
     background-color: #f1f1f1;
     border-radius: 1rem;
-   
 }
-.storeHeading{
+
+.storeHeading {
     display: flex;
     gap: 1rem;
-
 }
-.headerCard{
-    padding: 0.5rem;
+
+.headerCard {
+    padding: 0.7rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
-.storeHeadSpan{
-    border-bottom:dotted;
+
+.storeHeadSpan {
+    border-bottom: dotted lightgray;
     color: black;
     position: relative;
 }
 .pen{
-    border-radius: 0.5rem;
-
+    position: relative;
 }
-.pen :hover{
-background-color: lightgray;
-
+.pen span {
+    padding: 5px;
 }
-.money{
+
+.pen:hover {
+    background-color: lightgrey;
+    border-radius: 3px;
+}
+
+.money {
     color: black;
-   
 }
-.money .percent{
-    color:grey;
+
+.money .percent {
+    color: grey;
 }
-.dialogBox{
+
+.dialogBox {
     position: absolute;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border-radius: 1rem;
+    background-color: white;
+
 }
-.dialog{
+
+.dialog {
     padding: 1rem;
     letter-spacing: 1px;
- 
 }
+.dropdown{
+ position: absolute;
+}
+

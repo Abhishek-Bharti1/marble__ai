@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Accordion, AccordionTab } from "primereact/accordion";
 import "./App.css";
 import Header from "./components/Header";
 import ChartContainer from "./components/Chart";
-
+import Skeleton from 'react-loading-skeleton';
 function App() {
-  const [activeIndex, setActiveIndex] = useState(null);
+const [isLoading,setIsLoading] = useState(true);
+useEffect(()=>{
+setTimeout(()=>{
+setIsLoading(false);
+},2000);
+},[])
 
-  const handleTabChange = (index) => {
-    setActiveIndex(index === activeIndex ? null : index);
-  };
 
   const headingArr = [
     {
@@ -41,7 +43,7 @@ function App() {
   return (
     <div className="App">
       <div className="card">
-        <Accordion activeIndex={activeIndex} onTabChange={(e) => handleTabChange(e.index)}>
+        <Accordion activeIndex={0} >
           <AccordionTab
             header={
               <div className="navs-links">
@@ -52,25 +54,27 @@ function App() {
                     label={h.label}
                     rupees={h.rupees}
                     isIcon={h.isIcon}
+                    isLoading={isLoading}
                   />
                 ))}
               </div>
             }
           >
             <div className="navbar">
-              <ChartContainer />
+            {isLoading ? <Skeleton  height={100}/> : <ChartContainer /> }  
               <div>
             
               </div>
             </div>
-            <div className="footer">
+            {isLoading? <Skeleton/> : <div className="footer">
                   <div className="footerChild">
                     <span>Oct 1, 2022 - Feb 21, 2024</span>
                   </div>
                   <div className="footerChild">
                     <span> Oct 1, 2022 - Feb 21, 2024</span>
                   </div>
-                </div>
+                </div> }
+           
           </AccordionTab>
         </Accordion>
       </div>
